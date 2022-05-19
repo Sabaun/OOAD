@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DigitalLibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DigitalLibraryDB.dbo.BooksTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BooksTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookID" Type="varchar" MaxLength="50" />
+          <Property Name="BookName" Type="varchar" MaxLength="50" />
+          <Property Name="WriterName" Type="varchar" MaxLength="50" />
+          <Property Name="CatagoryID" Type="int" />
+          <Property Name="PublishDate" Type="varchar" MaxLength="50" />
+          <Property Name="UploadedBy" Type="int" />
+          <Property Name="UploadingDate" Type="varchar" MaxLength="50" />
+          <Property Name="BookPath" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DigitalLibraryDB.dbo.CatagoryTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CatagoryTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatagoryTitle" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <EntityType Name="loginTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="isAdmin" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DigitalLibraryDBModelStoreContainer">
+          <EntitySet Name="loginTable" EntityType="Self.loginTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BooksTable" EntityType="Self.BooksTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BooksTable].[ID] AS [ID], 
+    [BooksTable].[BookID] AS [BookID], 
+    [BooksTable].[BookName] AS [BookName], 
+    [BooksTable].[WriterName] AS [WriterName], 
+    [BooksTable].[CatagoryID] AS [CatagoryID], 
+    [BooksTable].[PublishDate] AS [PublishDate], 
+    [BooksTable].[UploadedBy] AS [UploadedBy], 
+    [BooksTable].[UploadingDate] AS [UploadingDate], 
+    [BooksTable].[BookPath] AS [BookPath], 
+    [BooksTable].[ImagePath] AS [ImagePath]
+    FROM [dbo].[BooksTable] AS [BooksTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CatagoryTable" EntityType="Self.CatagoryTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CatagoryTable].[ID] AS [ID], 
+    [CatagoryTable].[CatagoryTitle] AS [CatagoryTitle], 
+    [CatagoryTable].[isActive] AS [isActive]
+    FROM [dbo].[CatagoryTable] AS [CatagoryTable]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DigitalLibraryDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BooksTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WriterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CatagoryID" Type="Int32" />
+          <Property Name="PublishDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UploadedBy" Type="Int32" />
+          <Property Name="UploadingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BookPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatagoryTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatagoryTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Int32" />
+        </EntityType>
+        <EntityType Name="loginTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isAdmin" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DigitalLibraryDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BooksTables" EntityType="Self.BooksTable" />
+          <EntitySet Name="CatagoryTables" EntityType="Self.CatagoryTable" />
+          <EntitySet Name="loginTables" EntityType="Self.loginTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DigitalLibraryDBModelStoreContainer" CdmEntityContainer="DigitalLibraryDBEntities">
+          <EntitySetMapping Name="BooksTables">
+            <EntityTypeMapping TypeName="DigitalLibraryDBModel.BooksTable">
+              <MappingFragment StoreEntitySet="BooksTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+                <ScalarProperty Name="CatagoryID" ColumnName="CatagoryID" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="UploadedBy" ColumnName="UploadedBy" />
+                <ScalarProperty Name="UploadingDate" ColumnName="UploadingDate" />
+                <ScalarProperty Name="BookPath" ColumnName="BookPath" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatagoryTables">
+            <EntityTypeMapping TypeName="DigitalLibraryDBModel.CatagoryTable">
+              <MappingFragment StoreEntitySet="CatagoryTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CatagoryTitle" ColumnName="CatagoryTitle" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loginTables">
+            <EntityTypeMapping TypeName="DigitalLibraryDBModel.loginTable">
+              <MappingFragment StoreEntitySet="loginTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
